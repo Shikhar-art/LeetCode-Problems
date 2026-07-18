@@ -2,7 +2,7 @@ class Solution {
 public:
     int findGCD(vector<int>& nums) {
         int maxi=INT_MIN ,min=INT_MAX;
-        int ans;
+        int ans=0;
         int n=nums.size();
         for(int i=0;i<n;i++){
             if(nums[i]>maxi){
