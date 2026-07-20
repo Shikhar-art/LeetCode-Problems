@@ -15,13 +15,13 @@ public:
             if (arr[j] > tar) break;
 
             combin.push_back(arr[j]);
-            get(arr, j + 1, tar - arr[j], ans, combin); // move to next index
+            get(arr, j + 1, tar - arr[j], ans, combin); 
             combin.pop_back();
         }
     }
 
     vector<vector<int>> combinationSum2(vector<int>& arr, int target) {
-        sort(arr.begin(), arr.end()); // sort for duplicate skipping
+        sort(arr.begin(), arr.end()); 
         vector<vector<int>> ans;
         vector<int> combin;
         get(arr, 0, target, ans, combin);
