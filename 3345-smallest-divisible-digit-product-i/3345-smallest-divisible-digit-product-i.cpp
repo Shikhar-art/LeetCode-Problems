@@ -1,12 +1,20 @@
 class Solution {
 public:
+    int product_digit(int x){
+        int ans=1, d=0;
+        for(; x; x/=10){
+            d=x%10;
+            ans*=d;
+        }
+        return ans;
+    }
     int smallestNumber(int n, int t) {
-        auto [q, r] = div(n, 10);
-
-        int req = t / gcd(q + (10 - q) / 10, t);
-        int nxt = ((r + req - 1) / req) * req;
-        int x = nxt - (nxt - 10) * (nxt / 10);
-
-        return q * 10 + x;
+        int P[2]={product_digit(n/10), product_digit(n/10+1)};
+        int z0=((n/10)+1)*10;
+        for(int z=n; z<n+10; z++){
+            int p=P[z>=z0], d=z%10;
+            if (p*d%t==0) return z;
+        }
+        return 0;
     }
 };
